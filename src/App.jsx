@@ -3,94 +3,99 @@ import { useEffect, useMemo, useState } from "react";
 const services = [
   {
     id: "landing",
-    badge: "Mas solicitado",
-    title: "Landing page empresarial",
-    description:
-      "Paginas enfocadas en captar clientes, presentar tu oferta con claridad y dar una imagen seria desde el primer vistazo.",
+    label: "Landing",
+    title: "Landing pages empresariales orientadas a conversion",
+    summary:
+      "Desarrollo paginas enfocadas en presentar con claridad los servicios del negocio, generar confianza y facilitar el contacto comercial.",
     bullets: [
-      "Copy comercial y estructura orientada a conversion",
-      "Diseno adaptable para desktop y mobile",
-      "CTA claros hacia contacto, WhatsApp o correo",
+      "Estructura profesional y enfocada en resultados",
+      "Copy comercial claro y directo",
+      "Llamados a la accion conectados a canales reales",
     ],
   },
   {
-    id: "corporativo",
-    title: "Sitio web corporativo",
-    description:
-      "Presencia digital profesional para empresas que necesitan explicar servicios, diferenciales y casos de trabajo.",
+    id: "corporate",
+    label: "Corporate",
+    title: "Sitios web corporativos para negocios y empresas",
+    summary:
+      "Construyo sitios institucionales para empresas, marcas personales y negocios que necesitan una presencia digital solida y bien presentada.",
     bullets: [
-      "Arquitectura clara para negocio real",
-      "Secciones de autoridad, confianza y proceso",
-      "Base visual consistente para crecer despues",
+      "Arquitectura de informacion clara",
+      "Diseno moderno con tono profesional",
+      "Presentacion alineada con la imagen del negocio",
     ],
   },
   {
     id: "crud",
-    title: "Sistema CRUD basico",
-    description:
-      "Herramientas sencillas para gestionar clientes, inventario, registros o procesos internos con una interfaz limpia.",
+    label: "CRUD",
+    title: "Sistemas CRUD basicos para apoyar procesos internos",
+    summary:
+      "Desarrollo interfaces funcionales para registrar, consultar, editar y organizar informacion de manera simple y util.",
     bullets: [
-      "Operaciones de crear, editar, consultar y eliminar",
-      "Flujos practicos para pequenas empresas",
-      "Pensado para control, orden y escalabilidad futura",
+      "Flujos practicos para operacion diaria",
+      "Interfaz limpia y facil de usar",
+      "Base preparada para futuras mejoras",
     ],
   },
 ];
 
 const projects = [
   {
-    id: "proyecto-1",
-    category: "Landing B2B",
-    title: "Web comercial para consultora financiera",
-    summary:
-      "Una landing de alto impacto para presentar servicios premium, transmitir confianza y facilitar solicitudes de asesoria.",
-    scope: [
-      "Hero con propuesta de valor y CTA principal",
-      "Seccion de servicios, beneficios y testimonios",
-      "Formulario orientado a reuniones comerciales",
-    ],
+    id: "case-1",
+    tag: "Caso 01",
+    type: "Landing empresarial",
+    title: "Landing comercial para una consultora de servicios profesionales",
+    description:
+      "Una propuesta enfocada en presentar servicios de alto valor con claridad, autoridad visual y llamados a la accion bien ubicados.",
+    results: ["Mas confianza", "Mayor percepcion de valor", "Mas oportunidades de contacto"],
   },
   {
-    id: "proyecto-2",
-    category: "Sitio corporativo",
-    title: "Pagina institucional para empresa de mantenimiento",
-    summary:
-      "Un sitio con enfoque empresarial para mostrar experiencia, cobertura, procesos y credenciales a clientes potenciales.",
-    scope: [
-      "Paginas de servicios y sectores atendidos",
-      "Bloques de confianza para contratos empresariales",
-      "Contacto rapido para cotizaciones",
-    ],
+    id: "case-2",
+    tag: "Caso 02",
+    type: "Sitio corporativo",
+    title: "Sitio institucional para una empresa de servicios tecnicos",
+    description:
+      "Un sitio corporativo pensado para comunicar trayectoria, servicios, proceso de trabajo y canales de contacto con una imagen ordenada y profesional.",
+    results: ["Imagen mas solida", "Mensaje mas claro", "Mejor presentacion comercial"],
   },
   {
-    id: "proyecto-3",
-    category: "CRUD operacional",
-    title: "Panel basico para gestion de clientes",
-    summary:
-      "Una interfaz funcional para centralizar registros, editar datos y apoyar procesos administrativos del negocio.",
-    scope: [
-      "Listado con busqueda y estados",
-      "Formulario de alta y edicion de clientes",
-      "Base lista para crecer con autenticacion despues",
-    ],
+    id: "case-3",
+    tag: "Caso 03",
+    type: "CRUD basico",
+    title: "Panel administrativo para gestionar clientes y registros",
+    description:
+      "Una interfaz funcional para apoyar tareas operativas, centralizar informacion importante y aportar mas orden al negocio.",
+    results: ["Mayor control", "Uso mas simple", "Base lista para crecer"],
   },
 ];
 
-const faqs = [
+const principles = [
+  "Diseno con criterio comercial",
+  "Imagen profesional y actual",
+  "Estructura clara para vender mejor",
+  "Cada accion debe tener utilidad real",
+];
+
+const process = [
   {
-    question: "Que tipo de clientes pueden contratarte?",
-    answer:
-      "Trabajo bien con negocios locales, profesionales independientes, pequenas empresas y marcas que necesitan una presencia digital seria sin entrar aun en desarrollos complejos.",
+    step: "01",
+    title: "Analisis del negocio",
+    text: "Identifico que necesita comunicar tu negocio, a que tipo de cliente quieres llegar y que imagen debes proyectar.",
   },
   {
-    question: "Que entregas en un proyecto?",
-    answer:
-      "Entrego una solucion clara, funcional y pensada para negocio: estructura, interfaz, copy, llamadas a la accion y una experiencia consistente en desktop y mobile.",
+    step: "02",
+    title: "Estructura y propuesta",
+    text: "Defino secciones, recorrido del usuario y enfoque visual para construir una presentacion clara y profesional.",
   },
   {
-    question: "Puedo pedir algo parecido a uno de tus proyectos demo?",
-    answer:
-      "Si. Cada demo incluye un acceso rapido para precargar el formulario con ese tipo de proyecto y acelerar la conversacion.",
+    step: "03",
+    title: "Desarrollo",
+    text: "Construyo la web o el sistema con una base moderna, funcional y alineada con los objetivos del negocio.",
+  },
+  {
+    step: "04",
+    title: "Entrega y ajustes",
+    text: "Reviso detalles finales, optimizo la experiencia y dejo la solucion lista para presentar o publicar.",
   },
 ];
 
@@ -105,20 +110,21 @@ const initialForm = {
 
 function buildMessage(form) {
   return [
-    "Hola Sebastian, quiero solicitar una propuesta para mi negocio.",
+    "Hola Sebastian Ramirez Acevedo, quiero solicitar una propuesta para mi negocio.",
     "",
     `Negocio: ${form.businessName || "No especificado"}`,
     `Contacto: ${form.contactName || "No especificado"}`,
     `Email: ${form.email || "No especificado"}`,
-    `Servicio de interes: ${form.service}`,
+    `Servicio: ${form.service}`,
     `Tiempo estimado: ${form.timeline}`,
     "",
-    "Objetivo del proyecto:",
-    form.objective || "Quiero mejorar mi presencia digital y captar mas clientes.",
+    "Objetivo:",
+    form.objective || "Quiero una web profesional que me ayude a presentar mejor mi negocio y captar clientes.",
   ].join("\n");
 }
 
 function App() {
+  const [activeService, setActiveService] = useState(services[0].id);
   const [selectedProject, setSelectedProject] = useState(projects[0].id);
   const [form, setForm] = useState(initialForm);
   const [copied, setCopied] = useState(false);
@@ -133,24 +139,28 @@ function App() {
           }
         });
       },
-      { threshold: 0.16 }
+      { threshold: 0.12 }
     );
 
-    const items = document.querySelectorAll("[data-reveal]");
-    items.forEach((item) => observer.observe(item));
+    document.querySelectorAll("[data-reveal]").forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
   }, []);
 
-  const activeProject = useMemo(
+  const serviceDetail = useMemo(
+    () => services.find((service) => service.id === activeService) ?? services[0],
+    [activeService]
+  );
+
+  const projectDetail = useMemo(
     () => projects.find((project) => project.id === selectedProject) ?? projects[0],
     [selectedProject]
   );
 
   const draftMessage = useMemo(() => buildMessage(form), [form]);
-  const whatsappHref = `https://wa.me/?text=${encodeURIComponent(draftMessage)}`;
-  const mailHref = `mailto:?subject=${encodeURIComponent(
-    `Solicitud de propuesta - ${form.businessName || "Nuevo negocio"}`
+  const whatsappHref = `https://wa.me/573002791360?text=${encodeURIComponent(draftMessage)}`;
+  const mailHref = `mailto:sebastianacevedo123.sra@gmail.com?subject=${encodeURIComponent(
+    `Solicitud de propuesta web - ${form.businessName || "Nuevo negocio"}`
   )}&body=${encodeURIComponent(draftMessage)}`;
 
   function handleChange(event) {
@@ -158,24 +168,30 @@ function App() {
     setForm((current) => ({ ...current, [name]: value }));
   }
 
+  function selectService(serviceName) {
+    setForm((current) => ({
+      ...current,
+      service: serviceName,
+    }));
+    document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function prefillFromProject(project) {
-    const serviceMap = {
-      "Landing B2B": "Landing page empresarial",
-      "Sitio corporativo": "Sitio web corporativo",
-      "CRUD operacional": "Sistema CRUD basico",
-    };
+    const mappedService =
+      project.type === "Landing empresarial"
+        ? "Landing page empresarial"
+        : project.type === "Sitio corporativo"
+          ? "Sitio web corporativo"
+          : "Sistema CRUD basico";
 
     setSelectedProject(project.id);
     setForm((current) => ({
       ...current,
-      service: serviceMap[project.category] ?? current.service,
-      objective: `Quiero un proyecto similar a "${project.title}" para mejorar la presencia digital de mi negocio.`,
+      service: mappedService,
+      objective: `Quiero una propuesta inspirada en "${project.title}" para presentar mejor mi negocio y captar mas clientes.`,
     }));
 
-    const section = document.getElementById("contacto");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   async function copyBrief() {
@@ -189,177 +205,202 @@ function App() {
   }
 
   return (
-    <div className="page-shell">
+    <div className="site-shell">
+      <div className="ambient ambient-one" />
+      <div className="ambient ambient-two" />
+
       <header className="hero" id="inicio">
         <nav className="topbar" data-reveal>
           <a className="brand" href="#inicio">
             <span className="brand-mark">S</span>
             <span className="brand-copy">
-              <strong>Sebastian</strong>
-              <small>Desarrollo web empresarial freelance</small>
+              <strong>Sebastian Ramirez Acevedo</strong>
+              <small>Desarrollo web freelance para negocios y empresas</small>
             </span>
           </a>
 
           <div className="topbar-links">
             <a href="#servicios">Servicios</a>
             <a href="#proyectos">Proyectos</a>
-            <a href="#proceso">Proceso</a>
-            <a className="button button-secondary" href="#contacto">
-              Solicitar propuesta
-            </a>
+            <a href="#contacto">Contacto</a>
           </div>
         </nav>
 
-        <section className="hero-content">
+        <section className="hero-layout">
           <div className="hero-copy" data-reveal>
-            <p className="eyebrow">Portafolio empresarial para captar clientes freelance</p>
-            <h1>Construyo paginas web que hacen ver a tu negocio mas serio, mas claro y mas listo para vender.</h1>
+            <p className="eyebrow">Portafolio profesional de desarrollo web freelance</p>
+            <h1>
+              Desarrollo soluciones web claras y profesionales
+              <span> para negocios que quieren verse mejor y vender con mas confianza.</span>
+            </h1>
             <p className="hero-text">
-              Desarrollo soluciones web basicas con apariencia premium para negocios que necesitan una landing page,
-              un sitio corporativo o un sistema CRUD funcional sin caer en una imagen improvisada.
+              Ayudo a negocios, marcas personales y empresas pequenas a tener una presencia digital mas solida
+              mediante landing pages, sitios corporativos y sistemas CRUD funcionales, con un enfoque visual actual y
+              orientado a resultados.
             </p>
 
             <div className="hero-actions">
               <a className="button button-primary" href="#contacto">
-                Quiero una propuesta
+                Solicitar propuesta
               </a>
-              <a className="button button-ghost" href="#proyectos">
-                Ver proyectos demo
+              <a className="button button-secondary" href="#proyectos">
+                Ver proyectos
               </a>
             </div>
 
-            <ul className="hero-trust">
-              <li>Presentacion corporativa</li>
-              <li>Enfoque comercial</li>
-              <li>Interfaz funcional y lista para mostrar</li>
-            </ul>
+            <div className="hero-points">
+              <span>Imagen profesional</span>
+              <span>Estructura orientada a conversion</span>
+              <span>Contacto conectado a canales reales</span>
+            </div>
           </div>
 
-          <aside className="hero-panel" data-reveal>
-            <div className="panel-card">
-              <p className="panel-label">Lo que resuelvo</p>
-              <h2>Tu pagina deja de ser un adorno y se convierte en una herramienta para ganar confianza.</h2>
-              <div className="metric-grid">
-                <article>
-                  <strong>Landing pages</strong>
-                  <span>Para vender servicios con una estructura directa y profesional.</span>
-                </article>
-                <article>
-                  <strong>Sitios corporativos</strong>
-                  <span>Para negocios que necesitan presencia formal frente a clientes y aliados.</span>
-                </article>
-                <article>
-                  <strong>CRUDs basicos</strong>
-                  <span>Para ordenar procesos, registros y operaciones sin complicar la tecnologia.</span>
-                </article>
+          <aside className="hero-board" data-reveal>
+            <div className="hero-card hero-card-large">
+              <p className="card-kicker">Propuesta de valor</p>
+              <h2>Tu sitio web debe ayudarte a generar confianza, comunicar mejor y facilitar nuevas oportunidades.</h2>
+              <p>
+                Mi enfoque combina presentacion visual, claridad comercial y funcionalidad para que tu negocio tenga
+                una presencia digital mas fuerte.
+              </p>
+            </div>
+
+            <div className="hero-card-row">
+              <div className="hero-card accent-card">
+                <p className="card-kicker">Servicios</p>
+                <strong>Landing pages, sitios corporativos y CRUDs basicos</strong>
+                <span>Soluciones pensadas para mejorar la imagen y utilidad digital del negocio.</span>
+              </div>
+              <div className="hero-card mini-card">
+                <p className="card-kicker">Ubicacion</p>
+                <strong>Medellin, Colombia</strong>
               </div>
             </div>
           </aside>
         </section>
+
+        <div className="ticker" data-reveal>
+          <div className="ticker-track">
+            <span>Landing pages</span>
+            <span>Sitios corporativos</span>
+            <span>Sistemas CRUD</span>
+            <span>Desarrollo web freelance</span>
+            <span>Landing pages</span>
+            <span>Sitios corporativos</span>
+            <span>Sistemas CRUD</span>
+            <span>Desarrollo web freelance</span>
+          </div>
+        </div>
       </header>
 
       <main>
-        <section className="section section-light" id="problema" data-reveal>
+        <section className="section manifesto" data-reveal>
           <div className="section-heading">
-            <p className="eyebrow">Problema</p>
-            <h2>Muchos negocios pierden ventas porque su presencia digital no transmite la seriedad que si tienen en la vida real.</h2>
+            <p className="eyebrow">Enfoque</p>
+            <h2>Una presencia digital bien construida mejora la forma en que tu negocio es percibido antes del primer contacto.</h2>
           </div>
 
-          <div className="problem-grid">
-            <article className="info-card">
-              <h3>Se ven improvisados</h3>
-              <p>Cuando la web no comunica orden, el cliente duda antes de escribir, llamar o cotizar.</p>
+          <div className="manifesto-grid">
+            <article className="statement-card">
+              <h3>Mas confianza</h3>
+              <p>Una web bien presentada transmite seriedad y ayuda a que el cliente valore mejor tus servicios.</p>
             </article>
-            <article className="info-card">
-              <h3>Explican mal lo que hacen</h3>
-              <p>Sin una estructura clara, tus servicios se perciben como comunes y no como una solucion seria.</p>
+            <article className="statement-card">
+              <h3>Mas claridad</h3>
+              <p>La estructura correcta permite explicar mejor lo que haces, para quien trabajas y como pueden contratarte.</p>
             </article>
-            <article className="info-card">
-              <h3>No convierten visitas en oportunidades</h3>
-              <p>Si no hay CTA claros, formulario util y jerarquia visual, la pagina no aporta al negocio.</p>
+            <article className="statement-card">
+              <h3>Mas oportunidades</h3>
+              <p>Cuando el sitio guia al usuario hacia una accion concreta, aumenta la posibilidad de generar conversaciones reales.</p>
             </article>
           </div>
         </section>
 
-        <section className="section" id="servicios" data-reveal>
-          <div className="section-heading">
-            <p className="eyebrow">Servicios</p>
-            <h2>Soluciones web basicas, pero presentadas con el nivel visual y comercial que espera un cliente empresarial.</h2>
+        <section className="section services-section" id="servicios" data-reveal>
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Servicios</p>
+              <h2>Desarrollo soluciones web pensadas para negocios que necesitan una presentacion profesional y funcional.</h2>
+            </div>
+            <p className="support-copy">
+              Selecciona una linea de servicio y mira el tipo de solucion que puedo desarrollar.
+            </p>
           </div>
 
-          <div className="service-grid">
-            {services.map((service) => (
-              <article key={service.id} className={`service-card ${service.badge ? "featured" : ""}`}>
-                {service.badge ? <span className="badge">{service.badge}</span> : null}
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul>
-                  {service.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
+          <div className="service-stage">
+            <div className="service-tabs">
+              {services.map((service) => (
                 <button
-                  className="button button-inline"
+                  key={service.id}
+                  className={`service-tab ${service.id === activeService ? "service-tab-active" : ""}`}
                   type="button"
-                  onClick={() =>
-                    setForm((current) => ({
-                      ...current,
-                      service: service.title,
-                    }))
-                  }
+                  onClick={() => setActiveService(service.id)}
                 >
-                  Usar este servicio en el formulario
+                  <span>{service.label}</span>
+                  <strong>{service.title}</strong>
                 </button>
-              </article>
-            ))}
+              ))}
+            </div>
+
+            <div className="service-preview">
+              <p className="card-kicker">Servicio seleccionado</p>
+              <h3>{serviceDetail.title}</h3>
+              <p>{serviceDetail.summary}</p>
+              <ul className="bullet-list">
+                {serviceDetail.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              <button className="button button-primary" type="button" onClick={() => selectService(serviceDetail.title)}>
+                Solicitar este servicio
+              </button>
+            </div>
           </div>
         </section>
 
-        <section className="section" id="proyectos" data-reveal>
-          <div className="section-heading">
-            <p className="eyebrow">Proyectos demo</p>
-            <h2>Muestras estrategicas para que un cliente entienda rapido el tipo de trabajo que puede encargarte.</h2>
+        <section className="section projects-section" id="proyectos" data-reveal>
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Proyectos</p>
+              <h2>Referencias del tipo de soluciones que puedo desarrollar para negocios, marcas personales y empresas.</h2>
+            </div>
+            <p className="support-copy">Cada propuesta esta enfocada en mejorar presentacion, claridad y conversion.</p>
           </div>
 
-          <div className="portfolio-layout">
+          <div className="projects-grid">
             <div className="project-list">
               {projects.map((project) => (
                 <article
                   key={project.id}
-                  className={`project-card ${selectedProject === project.id ? "project-card-active" : ""}`}
+                  className={`project-card ${project.id === selectedProject ? "project-card-active" : ""}`}
                 >
-                  <p className="project-category">{project.category}</p>
+                  <div className="project-meta">
+                    <span>{project.tag}</span>
+                    <small>{project.type}</small>
+                  </div>
                   <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
+                  <p>{project.description}</p>
                   <div className="project-actions">
-                    <button
-                      className="button button-inline"
-                      type="button"
-                      onClick={() => setSelectedProject(project.id)}
-                    >
-                      Ver alcance
+                    <button className="button button-secondary" type="button" onClick={() => setSelectedProject(project.id)}>
+                      Ver detalle
                     </button>
-                    <button
-                      className="button button-inline button-inline-accent"
-                      type="button"
-                      onClick={() => prefillFromProject(project)}
-                    >
-                      Quiero algo similar
+                    <button className="button button-ghost" type="button" onClick={() => prefillFromProject(project)}>
+                      Solicitar algo similar
                     </button>
                   </div>
                 </article>
               ))}
             </div>
 
-            <aside className="project-detail">
-              <p className="panel-label">Detalle del proyecto</p>
-              <h3>{activeProject.title}</h3>
-              <p>{activeProject.summary}</p>
-              <ul className="detail-list">
-                {activeProject.scope.map((item) => (
-                  <li key={item}>{item}</li>
+            <aside className="project-spotlight">
+              <p className="card-kicker">Proyecto destacado</p>
+              <h3>{projectDetail.title}</h3>
+              <p>{projectDetail.description}</p>
+              <div className="result-grid">
+                {projectDetail.results.map((item) => (
+                  <span key={item}>{item}</span>
                 ))}
-              </ul>
+              </div>
               <a className="button button-primary" href="#contacto">
                 Llevar esta idea a mi negocio
               </a>
@@ -367,97 +408,62 @@ function App() {
           </div>
         </section>
 
-        <section className="section section-band" id="diferencial" data-reveal>
-          <div className="section-heading narrow">
-            <p className="eyebrow">Diferencial</p>
-            <h2>No compito por hacer paginas baratas. Compito por ayudar a que un negocio se vea confiable y listo para crecer.</h2>
+        <section className="section values-section" data-reveal>
+          <div className="section-heading">
+            <p className="eyebrow">Criterios de trabajo</p>
+            <h2>Cada proyecto busca equilibrio entre presentacion profesional, claridad comercial y funcionalidad real.</h2>
           </div>
 
-          <div className="value-grid">
-            <article>
-              <h3>Vision de negocio</h3>
-              <p>La estructura y el copy se piensan para que un potencial cliente entienda tu valor y te tome en serio.</p>
-            </article>
-            <article>
-              <h3>Diseno con intencion</h3>
-              <p>El lenguaje visual busca autoridad, claridad y una sensacion corporativa moderna, no una plantilla generica.</p>
-            </article>
-            <article>
-              <h3>Trabajo util desde ya</h3>
-              <p>Todo lo que ves en esta pagina funciona: navegacion, acciones, formulario y flujos de contacto.</p>
-            </article>
+          <div className="principles-wrap">
+            {principles.map((principle) => (
+              <span key={principle} className="principle-pill">
+                {principle}
+              </span>
+            ))}
           </div>
         </section>
 
-        <section className="section" id="proceso" data-reveal>
+        <section className="section process-section" data-reveal>
           <div className="section-heading">
             <p className="eyebrow">Proceso</p>
-            <h2>Un flujo simple para que el cliente sepa que estas trabajando con metodo, no improvisando.</h2>
+            <h2>Un proceso claro para desarrollar soluciones web utiles, ordenadas y listas para presentar.</h2>
           </div>
 
-          <div className="timeline">
-            <article className="timeline-item">
-              <span>01</span>
-              <div>
-                <h3>Entiendo el negocio</h3>
-                <p>Recojo contexto, necesidades, tono de marca y objetivo comercial del proyecto.</p>
-              </div>
-            </article>
-            <article className="timeline-item">
-              <span>02</span>
-              <div>
-                <h3>Propongo estructura</h3>
-                <p>Defino secciones, mensajes clave y CTA segun el tipo de web que necesita el cliente.</p>
-              </div>
-            </article>
-            <article className="timeline-item">
-              <span>03</span>
-              <div>
-                <h3>Desarrollo la solucion</h3>
-                <p>Construyo una interfaz limpia, profesional y funcional para que tu negocio pueda mostrarse con confianza.</p>
-              </div>
-            </article>
-            <article className="timeline-item">
-              <span>04</span>
-              <div>
-                <h3>Ajustamos y lanzamos</h3>
-                <p>Refinamos detalles, revisamos acciones de contacto y dejamos el proyecto listo para usar o presentar.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="section section-light" id="faq" data-reveal>
-          <div className="section-heading">
-            <p className="eyebrow">FAQ</p>
-            <h2>Respuestas clave para bajar objeciones antes de la primera conversacion.</h2>
-          </div>
-
-          <div className="faq-list">
-            {faqs.map((item) => (
-              <article key={item.question} className="faq-item">
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
+          <div className="process-grid">
+            {process.map((item) => (
+              <article key={item.step} className="process-card">
+                <span>{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="section cta" id="contacto" data-reveal>
-          <div className="cta-card">
-            <div>
-              <p className="eyebrow">Formulario funcional</p>
-              <h2>Prepara una solicitud profesional y enviala por el canal que prefieras.</h2>
+        <section className="section contact-section" id="contacto" data-reveal>
+          <div className="contact-shell">
+            <div className="contact-copy">
+              <p className="eyebrow">Contacto</p>
+              <h2>Si tu negocio necesita una presencia digital mas profesional, podemos trabajar en una solucion adecuada.</h2>
               <p>
-                Este formulario arma un brief comercial que puedes enviar por WhatsApp, correo o copiar al portapapeles.
+                Completa el formulario y envia tu solicitud directamente por WhatsApp, correo o copia el brief para compartirlo.
               </p>
 
-              <div className="contact-quick-actions">
+              <div className="contact-data">
+                <span>Sebastian Ramirez Acevedo</span>
+                <span>Medellin, Colombia</span>
+                <a href="mailto:sebastianacevedo123.sra@gmail.com">sebastianacevedo123.sra@gmail.com</a>
+                <a href="https://www.linkedin.com/in/sebastian-ramirez-acevedo-2580ab2a5/" target="_blank" rel="noreferrer">
+                  LinkedIn profesional
+                </a>
+              </div>
+
+              <div className="contact-links">
                 <a className="button button-secondary" href={whatsappHref} target="_blank" rel="noreferrer">
-                  Abrir WhatsApp con mensaje
+                  Escribir por WhatsApp
                 </a>
                 <a className="button button-ghost" href={mailHref}>
-                  Abrir correo con propuesta
+                  Enviar por correo
                 </a>
               </div>
             </div>
@@ -469,7 +475,7 @@ function App() {
                   name="businessName"
                   value={form.businessName}
                   onChange={handleChange}
-                  placeholder="Ejemplo: Grupo Atlas"
+                  placeholder="Nombre del negocio"
                 />
               </label>
 
@@ -479,23 +485,23 @@ function App() {
                   name="contactName"
                   value={form.contactName}
                   onChange={handleChange}
-                  placeholder="Tu nombre"
+                  placeholder="Nombre de contacto"
                 />
               </label>
 
               <label>
-                Correo del cliente
+                Correo
                 <input
                   name="email"
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="cliente@empresa.com"
+                  placeholder="correo@negocio.com"
                 />
               </label>
 
               <label>
-                Servicio de interes
+                Tipo de proyecto
                 <select name="service" value={form.service} onChange={handleChange}>
                   <option>Landing page empresarial</option>
                   <option>Sitio web corporativo</option>
@@ -509,7 +515,7 @@ function App() {
                   <option>Lo antes posible</option>
                   <option>Este mes</option>
                   <option>En 1 a 2 meses</option>
-                  <option>Solo estoy explorando opciones</option>
+                  <option>Solo estoy explorando</option>
                 </select>
               </label>
 
@@ -519,8 +525,8 @@ function App() {
                   name="objective"
                   value={form.objective}
                   onChange={handleChange}
-                  placeholder="Describe lo que quieres lograr con tu pagina o sistema."
                   rows="5"
+                  placeholder="Describe brevemente que necesitas y que objetivo quieres lograr."
                 />
               </label>
 
@@ -541,4 +547,3 @@ function App() {
 }
 
 export default App;
-
